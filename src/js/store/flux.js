@@ -1,44 +1,47 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			character: [],
+			planets: [],
+			characterDetails:{},
+			planetDetails:{},
+			favorites:[]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			getCharacters: ()=>{
+				fetch('https://swapi.dev/api/people')
+				.then((response)=>response.json())
+				.then(data => setStore({character: results}))
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			getCharacterData: (id)=>{
+				fetch(`https://www.swapi.tech/api/people/${id}`)
+				.then((response)=>response.json())
+				.then(data => setStore({characterDetails: data.result}))
 			},
-			changeColor: (index, color) => {
-				//get the store
+			getPlanets: ()=>{
+				fetch('https://swapi.dev/api/planets')
+				.then((response)=>response.json())
+				.then(data => setStore({planets: data.results}))
+			},
+			getPlanetData: (id)=>{
+				fetch(`https://www.swapi.tech/api/planets/${id}`)
+				.then((response)=>response.json())
+				.then(data =>setStore({planetDetails:data.result}))
+			},
+			addFavorite(nombreItem){
 				const store = getStore();
+				const fav = store.favorites;
+				const newFav = [...fav, { name: nombreItem, id:fav.length }]
+				setStore({favorites: newFav})
+			},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			deleteFavorite(id){
+				const store = getStore();
+				const fav = store.favorites;
+				const favActualizado = fav.filter((item) => item.id !== id);
+				setStore({favorites: favActualizado})
 			}
-		}
+		}			
 	};
 };
 

@@ -1,0 +1,76 @@
+body {
+    background-color:rgb(39, 41, 43) ;
+}
+
+.logo {
+    width: 100px;
+    margin-left: 25px;
+}
+
+.characterInfo {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .eachCard {
+    display: flex;
+    width: 100%;
+  }
+
+  .card {
+    min-width: 18rem;
+    background-color: rgb(33,37,41);
+  }
+
+  h1 {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    color: gold;
+  }
+
+  h5 {
+    color: white;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    margin: 1px;
+  }
+
+  .image-character {
+    border-radius: 1.5rem;
+    margin-left: 13rem;
+  }
+
+  ul {
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-right: 9rem; 
+    color: transparent;
+  }
+
+  .title-item {
+    background-color: rgba(26, 36, 65, 0.685);
+    color: gold;
+    font-size: large;
+  }
+
+  .image-vehicle {
+    border-radius: 1.5rem;
+    margin-left: 3rem;
+    margin-top: 3rem;
+  }
+
+  .image-planet {
+    border-radius: 1.5rem;
+    margin-left: 13rem;
+    margin-top: 3rem;
+  }
+  .delete{
+    display:flex;
+    justify-content: flex-end;
+    color: lightgray;
+    }
