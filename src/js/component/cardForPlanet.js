@@ -10,22 +10,17 @@ export const CardPlanet = (props) => {
 		<div className="eachCard">
 			<div className="card m-2">
 				
-				<img className="card-img-top" src={
-    props.planet.uid === "1"
-      ? "https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg"
-      : "https://starwars-visualguide.com/assets/img/planets/" +
-        props.planet.uid +
-        ".jpg"
-  } />
+				<img className="card-img-top" src={`https://starwars-visualguide.com/assets/img/planets/${props.index + 1}.jpg`}/>
+    
 				<div className="card-body">
 					<h5 className="card-title">{props.planet.name}</h5>
-					<Link to={`/data/planet/${props.planet.uid}`}>
+					<Link to={`/data/planet/${props.index+1}`}>
 					<button type="button" className="btn btn-outline-info me-2">
 						Learn more
 					</button>
 					</Link>
-					<button className="btn btn-warning" onClick={() => {
-                                            if (!store.favorites.includes(props.planet.namee)) {
+											<button className="btn btn-warning" onClick={() => {
+                                            if (!store.favorites.includes(props.planet.name)) {
                                                 actions.addFavorite(props.planet.name);
                                             }
                                         }}> {

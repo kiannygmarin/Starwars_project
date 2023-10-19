@@ -11,7 +11,7 @@ const CharacterInfo = () => {
   return (
     <div className="characterInfo">
       {store.character.map((character, index) => (
-        <CardCharacter key={index} character={character} />
+        <CardCharacter key={index} character={character} index={index} />
       ))}
     </div>
   )};

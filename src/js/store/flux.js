@@ -11,27 +11,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getCharacters: ()=>{
 				fetch('https://swapi.dev/api/people')
 				.then((response)=>response.json())
-				.then(data => setStore({character: results}))
+				.then(data => setStore({character: data.results}))
 			},
-			getCharacterData: (id)=>{
-				fetch(`https://www.swapi.tech/api/people/${id}`)
+			getCharacterData: (index)=>{
+				fetch(`https://www.swapi.tech/api/people/${index}`)
 				.then((response)=>response.json())
 				.then(data => setStore({characterDetails: data.result}))
+				.catch(error => console.error("Error fetching character data:", error));
 			},
 			getPlanets: ()=>{
 				fetch('https://swapi.dev/api/planets')
 				.then((response)=>response.json())
 				.then(data => setStore({planets: data.results}))
 			},
-			getPlanetData: (id)=>{
-				fetch(`https://www.swapi.tech/api/planets/${id}`)
+			getPlanetData: (index)=>{
+				fetch(`https://www.swapi.tech/api/planets/${index}`)
 				.then((response)=>response.json())
 				.then(data =>setStore({planetDetails:data.result}))
 			},
 			addFavorite(nombreItem){
 				const store = getStore();
 				const fav = store.favorites;
-				const newFav = [...fav, { name: nombreItem, id:fav.length }]
+				const newFav = [...fav, { name: nombreItem, index:fav.length }]
 				setStore({favorites: newFav})
 			},
 

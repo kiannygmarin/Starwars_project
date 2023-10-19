@@ -9,6 +9,7 @@ export const PlanetsData = (props) => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const detail = store.planetDetails;
+	console.log (detail)
 	useEffect(() => {
 		actions.getPlanetData(params.id)
 	}, [])
@@ -27,22 +28,22 @@ export const PlanetsData = (props) => {
 							/>
 						</div>
 						<div className="col-lg-6">
-							<h1>{detail.name}</h1>
+							<h1>{detail.properties?.name}</h1>
 							<ul className="list-group">
 								<li className="title-item list-group-item border-light">Diameter ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.diameter}</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.diameter}</li>
 							</ul>
 							<ul className="list-group">
-								<li className="title-item list-group-item border-light">Climate ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.climate}</li>
+								<li className="title-item list-group-item border-light">Gravity ｡･:*˚:✧｡</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.climate}</li>
 							</ul>
 							<ul className="list-group">
-								<li className="title-item list-group-item border-light">Terrain ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.terrain}</li>
+								<li className="title-item list-group-item border-light">Diameter ｡･:*˚:✧｡</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.diameter}</li>
 							</ul>
 							<ul className="list-group">
-								<li className="title-item list-group-item border-light">Orbital Period ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.orbital_period}</li>
+								<li className="title-item list-group-item border-light">Rotation Period ｡･:*˚:✧｡</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.rotation_period}</li>
 							</ul>
 						</div>
 					</div>

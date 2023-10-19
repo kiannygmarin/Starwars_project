@@ -25,22 +25,22 @@ export const CharactersData = (props) => {
 							/>
 						</div>
 						<div className="col-lg-6">
-							<h1>{detail.name}</h1>
+							<h1>{detail.properties?.name}</h1>
 							<ul className="list-group">
 								<li className="title-item list-group-item border-light">Birth Year ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.birth_year}</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.birth_year}</li>
 							</ul>
 							<ul className="list-group">
 								<li className="title-item list-group-item border-light">Height ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.height} cm</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.height} cm</li>
 							</ul>
 							<ul className="list-group">
 								<li className="title-item list-group-item border-light">Eye Color ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.eye_color}</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.eye_color}</li>
 							</ul>
 							<ul className="list-group">
 								<li className="title-item list-group-item border-light">Skin Color ｡･:*˚:✧｡</li>
-								<li className="list-group-item bg-transparent text-light border-light">{detail.skin_color}</li>
+								<li className="list-group-item bg-transparent text-light border-light">{detail.properties?.skin_color}</li>
 							</ul>
 						</div>
 					</div>

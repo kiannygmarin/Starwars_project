@@ -12,7 +12,7 @@ const PlanetInfo = () => {
   return (
     <div className="characterInfo">
       {store.planets.map((planet, index) => (
-        <CardPlanet key={index} planet={planet} />
+        <CardPlanet key={index} planet={planet} index={index} />
       ))}
     </div>
   )};

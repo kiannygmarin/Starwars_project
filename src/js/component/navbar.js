@@ -6,11 +6,11 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	const handleDeleteFavorites = (e, name) => {
-		e.stopPropagation();
-		const myfavs = store.favorites.filter((item) => item.name !== name)
-		actions.newFavorites(myfavs)
-	};
+	// const handleDeleteFavorites = (e, name) => {
+	// 	e.stopPropagation();
+	// 	const myfavs = store.favorites.filter((item) => item.name !== name)
+	// 	actions.newFavorites(myfavs)
+	// };
 
 	return  (
 		<>
@@ -25,23 +25,11 @@ export const Navbar = () => {
 							Favorites {store.favorites.length}
 						</a>
 
-						<ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-							{store.favorites.map((value, index) => {
-								return (
-									<li key={index}>
-										{
-											store.favorites.length === 0 ? <a className="dropdown-item">Empty</a> : <a className="dropdown-item d-flex " href="#">
-												{value}
-										
-												<i className=" btn fa-solid fa-xmark delete" 
-												onClick={() => actions.deleteFavorite(index)}></i>
-												
-											</a>
-										}
-									</li>
-								);
-							})}
-						</ul>
+						<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+              {store.favorites.map((item) => {
+                return <li><a className="dropdown-item"> <span onClick={() => { actions.deleteFavorite(item.id) }} className={"fa fa-trash"}></span>{item.name}</a></li>
+              })}
+            </ul>
 					</div>
 				
 			</div>
