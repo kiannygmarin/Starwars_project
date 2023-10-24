@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorite(nombreItem){
 				const store = getStore();
 				const fav = store.favorites;
-				const newFav = [...fav, { name: nombreItem, index:fav.length }]
+				const newFav = [...fav, { name: nombreItem, id:fav.length }]
 				setStore({favorites: newFav})
 			},
 
